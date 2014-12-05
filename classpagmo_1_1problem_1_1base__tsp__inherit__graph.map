@@ -1,0 +1,6 @@
+<map id="pagmo::problem::base_tsp" name="pagmo::problem::base_tsp">
+<area shape="rect" id="node3" href="$classpagmo_1_1problem_1_1tsp.html" title="A static Travelling Salesman Problem." alt="" coords="5,163,147,189"/>
+<area shape="rect" id="node4" href="$classpagmo_1_1problem_1_1tsp__cs.html" title="The City&#45;Selection Travelling Salesman Problem." alt="" coords="171,163,333,189"/>
+<area shape="rect" id="node5" href="$classpagmo_1_1problem_1_1tsp__vrplc.html" title="A static Travelling Salesman Problem." alt="" coords="357,155,499,197"/>
+<area shape="rect" id="node2" href="$classpagmo_1_1problem_1_1base.html" title="Base problem class." alt="" coords="177,5,327,32"/>
+</map>
