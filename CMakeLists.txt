@@ -113,14 +113,14 @@ OPTION(BUILD_MAIN "Build 'main.cpp'." ON)
 OPTION(BUILD_PYGMO "Build Python bindings." OFF)
 
 IF(BUILD_PYGMO)
-	# Detect default Python version  
+	# Detect default Python version
 	IF(NOT DEFINED PYGMO_PYTHON_VERSION)
 	       INCLUDE(FindPythonInterp)
 	       IF(NOT PYTHONINTERP_FOUND)
 	       	      MESSAGE(FATAL_ERROR "Unable to locate Python interpreter. Turn off BUILD_PYGMO please.")
 	       ELSE(NOT PYTHONINTERP_FOUND)
 	       	      MESSAGE(STATUS "Python version ${PYTHON_VERSION_STRING} found.")
-		      # Build Option: build with specific specific Python compatibility 
+		      # Build Option: build with specific specific Python compatibility
 		      SET(PYGMO_PYTHON_VERSION ${PYTHON_VERSION_STRING} CACHE STRING "Build PyGMO with specific Python compatibility.")
 		      SET(PYGMO_PYTHON_VERSION_CACHED "0" CACHE STRING "Track changes to PYGMO_PYTHON_VERSION. DO NOT CHANGE.")
 		      SET(PYGMO_PYTHON_FINDER ON CACHE BOOL "Find automatically Python interpreter and libraries based on PYGMO_PYTHON_VERSION")
