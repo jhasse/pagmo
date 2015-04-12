@@ -75,6 +75,22 @@ void base::set_screen_output(const bool p) {m_screen_output = p;}
  */
 bool base::get_screen_output() const {return m_screen_output;}
 
+/// Sets ignore integer part
+/**
+ * Sets ignore integer part boolean variable. When True the algorithm won't touch the integer part of the decision vector.
+ *
+ * @param[in] p true or false
+ */
+void base::set_ignore_integer_part(const bool p) {m_ignore_integer_part = p;}
+
+/// Gets ignore integer part
+/**
+ * Gets ignore integer part boolean variable. When True the algorithm won't touch the integer part of the decision vector.
+ *
+ * return boolean value associated to the ignore integer part option
+ */
+bool base::get_ignore_integer_part() const {return m_ignore_integer_part;}
+
 /// Resets the random number generators
 /**
  * Resets the seed of the internal random number generators to p

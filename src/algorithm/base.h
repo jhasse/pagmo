@@ -108,12 +108,18 @@ return base_ptr(new derived_algorithm(*this));
 		void set_screen_output(const bool p);
 		bool get_screen_output() const;
 
+		/// Setter-Getter for protected m_ignore_integer_part
+		void set_ignore_integer_part(bool);
+		bool get_ignore_integer_part() const;
+
 		/// Resets the seed of the internal rngs using a user-provided seed
 		void reset_rngs(const unsigned int) const;
 
 	protected:
 		/// Indicates to the derived class whether to print stuff on screen
 		bool m_screen_output;
+		/// Should the integer part of the decision vector be ignored
+		bool m_ignore_integer_part = false;
 		/// Random number generator for double-precision floating point values.
 		mutable rng_double	m_drng;
 		/// Random number generator for unsigned integer values.
@@ -121,11 +127,14 @@ return base_ptr(new derived_algorithm(*this));
 	private:
 		friend class boost::serialization::access;
 		template <class Archive>
-		void serialize(Archive &ar, const unsigned int)
+		void serialize(Archive &ar, const unsigned int version)
 		{
 			ar & m_drng;
 			ar & m_urng;
 			ar & m_screen_output;
+			if (version > 0) {
+				ar & m_ignore_integer_part;
+			}
 		}
 	protected:
 		/// A counter for the number of function evaluations
@@ -137,6 +146,7 @@ std::ostream __PAGMO_VISIBLE_FUNC &operator<<(std::ostream &, const base &);
 }
 }
 
+BOOST_CLASS_VERSION(pagmo::algorithm::base, 1)
 BOOST_SERIALIZATION_ASSUME_ABSTRACT(pagmo::algorithm::base)
 
 #endif
