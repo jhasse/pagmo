@@ -146,6 +146,10 @@ BOOST_PYTHON_MODULE(_problem_meta) {
 		.add_property("shift_vector",make_function(&problem::shifted::get_shift_vector,return_value_policy<copy_const_reference>()))
 		.def("deshift",&problem::shifted::deshift);
 
+	// Relaxed meta-problem
+	meta_problem_wrapper<problem::relaxed>("relaxed","Relaxed problem")
+		.def(init<const problem::base &>());
+
 	// Scaled meta-problem
 	meta_problem_wrapper<problem::scaled>("scaled","Scaled problem")
 		.def(init<const problem::base &, fitness_vector >())
