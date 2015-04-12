@@ -56,7 +56,7 @@ typedef boost::shared_ptr<base> base_ptr;
  *
  * \section Serialization
  * The algorithm classes are serialized for the purpose of being transmitted over a distributed environment.
- * Serializing a derived algorithm requires that the needed serialization libraries be declared in their header of the derived class. 
+ * Serializing a derived algorithm requires that the needed serialization libraries be declared in their header of the derived class.
  * Virtually all the derived algorithm classes need to have the following declared in the header files:
 @verbatim
 	friend class boost::serialization::access;
@@ -66,20 +66,20 @@ typedef boost::shared_ptr<base> base_ptr;
 @verbatim
 	ar & boost::serialization::base_object<base>(*this);
 @endverbatim
- * and the rest of the attributes simply as archive members: 
+ * and the rest of the attributes simply as archive members:
 @verbatim
 	ar & attribute_name;
 @endverbatim
  * In order to be able to identify the dervied class from a base_pointer the derived class needs to be registered. This is done by registering the class in the "pagmo/src/algorithms.h", in the REGISTER_ALGORITHM_SERIALIZATIONS() routine.
- * Notes: 
+ * Notes:
  * - "const" attributes need to be cast as constants in the serialize method using const_cast
  * - attributes that that are not primitives, need be a serialized type as well
  * - pointers to primitives cannot be serialized (in this case one can split the serialize method into save/load methods and store the values, that the pointers refer to, into temporary variables which are serialized insted - see boost serialize documentation on the topic if needed)
  *
- * @author Francesco Biscani (bluescarni@gmail.com) 
+ * @author Francesco Biscani (bluescarni@gmail.com)
  */
 class __PAGMO_VISIBLE base
-{    
+{
 	public:
 		base();
 		/// Evolve method.
@@ -124,7 +124,7 @@ return base_ptr(new derived_algorithm(*this));
 		void serialize(Archive &ar, const unsigned int)
 		{
 			ar & m_drng;
-			ar & m_urng; 
+			ar & m_urng;
 			ar & m_screen_output;
 		}
 	protected:

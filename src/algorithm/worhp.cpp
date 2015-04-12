@@ -26,7 +26,7 @@
 namespace pagmo { namespace algorithm {
 
 // Dummy print function used to suppress all screen output
-void no_screen_output (int, const char []) {} 
+void no_screen_output (int, const char []) {}
 void default_output(int mode, const char *message) {
   if (mode & WORHP_PRINT_MESSAGE) {
     printf(" %s\n",message);
@@ -166,7 +166,7 @@ void worhp::evolve(pagmo::population& pop) const {
 	// Define HM as a diagonal LT-CS-matrix, but only if needed by WORHP
 	// Not sure if this is needed at all
 	if (workspace.HM.NeedStructure) {
-		for(int i = 0; i < workspace.HM.nnz; ++i) 
+		for(int i = 0; i < workspace.HM.nnz; ++i)
 		{
 			workspace.HM.row[i] = i + 1;
 			workspace.HM.col[i] = i + 1;
@@ -178,13 +178,13 @@ void worhp::evolve(pagmo::population& pop) const {
 			Worhp(&opt, &workspace, &params, &control);
 		}
 
-		if (GetUserAction(&control, iterOutput)) 
+		if (GetUserAction(&control, iterOutput))
 		{
 			IterationOutput(&opt, &workspace, &params, &control);
 			DoneUserAction(&control, iterOutput);
 		}
 
-		
+
 		if (GetUserAction(&control, evalF)) {
 			for (int i = 0; i < opt.n; ++i) {
 				x[i] = opt.X[i];

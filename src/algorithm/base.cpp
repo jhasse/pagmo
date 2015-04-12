@@ -68,7 +68,7 @@ void base::set_screen_output(const bool p) {m_screen_output = p;}
 
 /// Gets screen output
 /**
- * Gets screen output boolean variable. When True the algorithm may print stuff on screen 
+ * Gets screen output boolean variable. When True the algorithm may print stuff on screen
  * (careful, in multithreading this can mess up things)
  *
  * return boolean value associated to the screen output option
@@ -79,7 +79,7 @@ bool base::get_screen_output() const {return m_screen_output;}
 /**
  * Resets the seed of the internal random number generators to p
  *
- * @param[in] p the new seed. It will be used to instantiate both drng and urng 
+ * @param[in] p the new seed. It will be used to instantiate both drng and urng
  */
 void base::reset_rngs(const unsigned int p) const {
 	m_urng = rng_uint32(p);
