@@ -36,8 +36,11 @@ namespace pagmo{ namespace problem {
 
 /// Relaxed meta-problem
 /**
- * Implements a meta-problem class that wraps some other problems,
- * resulting in a relaxed version of the underlying problem.
+ * Implements a meta-problem class that wraps some other problem and acts as
+ * its continous relaxation. This basically means that the integer part of the
+ * underlying problem will be treated the same way as if it was continous. See
+ * http://docs.mosek.com/7.0/capi/The_optimizers_for_mixed-integer_problem.html
+ * for more details.
  */
 
 class __PAGMO_VISIBLE relaxed : public base_meta
